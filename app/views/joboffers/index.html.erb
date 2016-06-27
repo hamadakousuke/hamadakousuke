@@ -1,0 +1,28 @@
+<head>
+</head>
+  <div>
+    <h1>求人案件一覧</h1>
+  </div>
+      案件は<%= @jobs.count %>件です<br>
+
+  <div>
+  <%= form_tag(joboffers_index_path, method:"get") do %>
+  <%= label_tag :area, "都道府県" %>
+  <%= select_tag :area, options_for_select(Job.areas),include_blank: true %>
+  <%= label_tag :employment, "雇用形態" %>
+  <%= select_tag :employment, options_for_select(Job.employments), include_blank: true %>
+  <%= submit_tag "検索" %>
+  <% end %>
+  </div
+
+
+  <p class="案件一覧"> <% @jobs.each do |job| %></p>
+    <%= link_to job.title,"http://localhost:3000/joboffers/show/#{job.id}" %>
+
+    <form method="post" action="/entries/entry">
+      <input type="hidden" name="authenticity_token" value="aEzZnW940v9bBGaBsAVmO92kxeL7c4ptQw+wDCRUtyK6coIeIAEeBvSMu03lpaz/gX5S2yh/bgR/GfZDDP+VGg==">
+        <input name="job_id" type="hidden" value="<%= job.id %>" />
+        <td colspan="2"align=right><input type="submit"　 value="応募する"　class="btn btn--pt3 btn--entry01 btn--kantan w-block" rel="nofollow">
+    </form>
+    <% end %>
+    <%= link_to "TOPに戻る",grandtops_path%>

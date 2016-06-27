@@ -1,0 +1,17 @@
+<h1>会社管理</h1>
+<p>Find me in app/views/client/index.html.erb</p>
+
+<ul>
+
+  <p><% @clients.each do |client| %></p>
+  <li><%= link_to client.company_name,client_path(client.id) %></li>
+  <li><%= client.company_name %>
+    <%= client.corporate_form %>
+    <%= client.contract_status %>
+    <%= client.pulling_down %></li>
+    <%= link_to "編集",edit_client_path(client.id) %>
+    <%= link_to "削除",client_path(client.id), method: :delete, data:{confirm: "本当によろしいでしょうか？"} %>
+<% end %>
+<p><%= link_to '新規クライアント',new_client_path %></P>
+<p><%= link_to '管理画面に戻る',v2s_index_path %></p>
+</ul>

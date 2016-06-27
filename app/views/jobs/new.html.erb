@@ -1,0 +1,26 @@
+<h1>新規求人作成</h1>
+<%= form_for @job do |f| %>
+<p>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
+</p>
+<p>
+  <%= f.label :content_detail%><br>
+  <%= f.text_field :content_detail %>
+</p>
+<p>
+<%= f.label :"勤務地" %>
+<%= f.select :area, Job.areas.keys %>
+</p>
+
+<p>
+<%= f.label :"雇用形態" %>
+<%= f.select :employment, Job.employments.keys %>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+<%= link_to '管理画面に戻る',v2s_index_path %>
+<%= link_to '求人管理に戻る',jobs_path %>
+<% end %>

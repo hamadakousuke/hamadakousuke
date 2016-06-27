@@ -1,0 +1,16 @@
+
+
+<head>
+</heda>
+<body>
+<h1>求人案件一覧</h1>
+
+    <P><% @jobs.each do |job| %></P>
+      <%= link_to job.title,job_path(job.id) %>
+      <%= link_to "編集",edit_job_path(job.id) %>
+      <%= link_to "削除",job_path(job.id), method: :delete, data:{confirm: "本当によろしいでしょうか？"} %>
+  <% end %>
+
+<p><%= link_to '新規広告',new_job_path %></P>
+<p><%= link_to '管理画面に戻る',v2s_index_path %></p>
+</body>

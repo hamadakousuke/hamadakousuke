@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  branch: MyString
+  publish_status: MyString
+  display: MyString
+  : MyString
+  creation_time: 2016-06-21 23:28:05
+  job_id: 1
+
+two:
+  branch: MyString
+  publish_status: MyString
+  display: MyString
+  : MyString
+  creation_time: 2016-06-21 23:28:05
+  job_id: 1

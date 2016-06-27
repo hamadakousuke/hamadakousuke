@@ -1,0 +1,33 @@
+<h1>新規クライアント</h1>
+  <%= form_for @client do |f| %>
+  <p>
+    <%= f.label :company_name %><br>
+    <%= f.text_field :company_name %>
+  </p>
+  <p>
+    <%= f.label :ceo%><br>
+    <%= f.text_field :ceo %>
+  </p>
+  <p>
+    <%= f.label :job_recruiter%><br>
+    <%= f.text_field :job_recruiter%>
+  </p>
+  <p>
+    <%= f.label :address%><br>
+    <%= f.text_field :address %>
+  </p>
+
+  <p>
+    <%= f.label :number_hired%><br>
+    <%= f.text_field :number_hired %>
+  </p>
+  <p>
+    <%= f.label :corporate_form%><br>
+    <%= f.text_field :corporate_form%>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+  <%= link_to '管理画面に戻る',v2s_index_path %>
+  <%= link_to '会社管理に戻る',clients_path %>
+<% end %>

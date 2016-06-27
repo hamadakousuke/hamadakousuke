@@ -1,0 +1,71 @@
+<h1>新規登録</h1>
+<%= form_for @user do |f| %>
+
+    <div>
+      <%= f.label :"氏名" %>
+     <%= f.text_field :name %>
+     <% if @user.errors.any? %>
+     <%= @user.errors.messages[:name][0] %>
+     <% end %>
+   </div>
+
+   <div>
+     <%= f.label :"性別" %>
+     <%= f.select :gender, User.genders.keys %>
+     <% if @user.errors.any? %>
+     <%= @user.errors.messages[:gender][0] %>
+     <% end %>
+   </div>
+
+   <div>
+     <%= f.label :"生年月日" %>
+     <%= f.date_select :birthday, start_year: 1950, end_year: 2016 %>
+   </div>
+
+   <div>
+     <%= f.label :"出身地" %>
+     <%= f.text_field :hometown %>
+     <% if @user.errors.any? %>
+     <%= @user.errors.messages[:hometown][0] %>
+     <% end %>
+   </div>
+
+   <div>
+     <%= f.label :"経歴" %>
+     <%= f.select :career, User.careers.keys %>
+   </div>
+
+   <div>
+     <%= f.label :"希望職種" %>
+    <%= f.select :job_objective, User.job_objectives.keys %>
+  </div>
+
+  <div>
+    <%= f.label :"PR文" %>
+    <%= f.text_area :pr %>
+    <% if @user.errors.any? %>
+    <%= @user.errors.messages[:pr][0] %>
+    <% end %>
+  </div>
+
+    <div>
+      <%= f.label :"E-mail" %>
+      <%= f.email_field :email %>
+      <% if @user.errors.any? %>
+      <%= @user.errors.messages[:email][0] %>
+      <% end %>
+    </div>
+
+    <div>
+      <%= f.label :"パスワード" %>
+      <%= f.password_field :password %>
+      <% if @user.errors.any? %>
+      <%= @user.errors.messages[:password][0] %>
+      <% end %>
+    </div>
+
+    <div>
+      <%= f.submit "新規登録" %>
+      <%= link_to "TOPに戻る",grandtops_path%>
+    </div>
+<% end %>

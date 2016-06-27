@@ -1,0 +1,16 @@
+<h1>新規求人作成</h1>
+<%= form_for @job, url: {controller: "client_managements", action: "create"} do |f| %>
+<p>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
+</p>
+<p>
+  <%= f.label :content_detail%><br>
+  <%= f.text_field :content_detail %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<%= link_to '管理画面に戻る',v2s_index_path %>
+<%= link_to '会社管理に戻る',clients_path %>
+<% end %>
