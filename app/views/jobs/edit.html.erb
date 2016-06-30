@@ -18,10 +18,10 @@
   <%= f.label :"雇用形態" %>
   <%= f.select :employment, Job.employments.keys %>
   </p>
-  
+
   <p>
     <%= f.submit %>
   </p>
-  <%= link_to '企業管理画面に戻る',client_managements_index_path %>
+  <%= link_to '企業管理画面に戻る',client_managements_path %>
   <%= link_to '求人管理に戻る',client_managements_show_path %>
 <% end %>

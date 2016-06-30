@@ -1,17 +1,46 @@
-<h1>会社管理</h1>
-<p>Find me in app/views/client/index.html.erb</p>
+<html lang="ja">
+<head>
 
-<ul>
+<header>
+  <div class="header">
 
-  <p><% @clients.each do |client| %></p>
-  <li><%= link_to client.company_name,client_path(client.id) %></li>
-  <li><%= client.company_name %>
-    <%= client.corporate_form %>
-    <%= client.contract_status %>
-    <%= client.pulling_down %></li>
-    <%= link_to "編集",edit_client_path(client.id) %>
-    <%= link_to "削除",client_path(client.id), method: :delete, data:{confirm: "本当によろしいでしょうか？"} %>
-<% end %>
-<p><%= link_to '新規クライアント',new_client_path %></P>
-<p><%= link_to '管理画面に戻る',v2s_index_path %></p>
-</ul>
+    <div class="header-top">
+      <div class="container">
+        <ul class="header-top__navi">
+          <li><a ><%= link_to '管理画面',v2s_index_path %></a></li>
+          <li><a ><%= link_to 'ログイン',login_path %></a></li>
+            <li><a><%= link_to '企業管理画面',client_managements_path %>
+            <li><a><%= link_to 'TOPへ戻る',grandtops_path %></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="header-middle container clear">
+      <a class="header-middle__logo"><img class="logo_header" src="https://relax-job.com/images/user_frontend/pc/logo_header.png" alt="Logo header"></a></a>
+      <div align=left>
+
+  <!-- .header -->
+</header>
+<<body>
+  <div style="width:50%; margin:0 auto;" align="center">
+      <h1><font size = 4 >会社管理</h1>
+        <p><font size="5">掲載社数<%= @clients.count %>件</p>
+  <div class="job-data__main">
+    <section>
+      <table class="table table-set--jobdata",align="center">
+          <% @clients.each do |client| %>
+        <colgroup>
+          <col style="width: 100px;">
+        </colgroup>
+              <tr align="center"><th><%= link_to client.company_name,client_path(client.id) %><%= link_to "編集",edit_client_path(client.id) %><%= link_to "削除",client_path(client.id), method: :delete, data:{confirm: "本当によろしいでしょうか？"} %></tr></th>
+          <% end %>
+            </table>
+          </section>
+        </div>
+  </div>
+
+</div>
+</body>
+<div align=center>
+  <%= link_to "新規クラインアント",new_client_path %>
+</div>

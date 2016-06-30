@@ -1,16 +1,49 @@
-<h1>新規求人作成</h1>
-<%= form_for @job, url: {controller: "client_managements", action: "create"} do |f| %>
+<head>
+</head>
+
+<div style="width:50%; margin:0 auto;" align="center">
+
+<h1><font size="5">新規求人作成</font></h1>
+<%= form_for @job, url:{controller:'client_managements', action: 'create'} do |f| %>
 <p>
-  <%= f.label :title %><br>
-  <%= f.text_field :title %>
-</p>
-<p>
-  <%= f.label :content_detail%><br>
-  <%= f.text_field :content_detail %>
-</p>
-<p>
-  <%= f.submit %>
-</p>
-<%= link_to '管理画面に戻る',v2s_index_path %>
-<%= link_to '会社管理に戻る',clients_path %>
+  <div style="width:50%; margin:0 auto;" align="center">
+  <form action="new_user_through" method="post" >
+  <input name="authenticity_token" type="hidden" value="1234" />
+    <table class="table table-set--pt1 table--thd-20 w-block txt_size_12">
+        <colgroup>
+          <col style="width:200px;">
+        </colgroup>
+        <tbody>
+
+           <tr>
+             <th>
+               <%= f.label :title %><br>
+               <%= f.text_field :title %>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <%= f.label :content_detail%><br>
+              <%= f.text_field :content_detail %>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <%= f.label :"勤務地" %>
+              <%= f.select :area, Job.areas.keys %>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <%= f.label :"雇用形態" %>
+              <%= f.select :employment, Job.employments.keys %>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+  <p>
+    <%= f.submit %>
+  </p>
+  <%= link_to '管理画面に戻る',v2s_index_path %>
+  <%= link_to '会社管理に戻る',clients_path %>
 <% end %>

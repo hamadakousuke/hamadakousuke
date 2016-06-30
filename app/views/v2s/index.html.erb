@@ -1,5 +1,42 @@
-<h1>v2</h1>
-<p><%= link_to '求人管理',jobs_path %></p>
-<p><%= link_to '会社管理',clients_path %></p>
-<p><%= link_to '求職者管理',users_path %></p>
-<p><%= link_to 'TOPへ戻る',grandtops_path %></p>
+<html lang="ja">
+<head>
+
+<header>
+  <div class="header">
+
+    <div class="header-top">
+      <div class="container">
+        <ul class="header-top__navi">
+          <li><a ><%= link_to '管理画面',v2s_index_path %></a></li>
+          <li><a ><%= link_to 'ログイン',login_path %></a></li>
+            <li><a><%= link_to '企業管理画面',client_managements_path %>
+            <li><a><%= link_to 'TOPへ戻る',grandtops_path %></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="header-middle container clear">
+      <a class="header-middle__logo" href="/"><img class="logo_header" src="https://relax-job.com/images/user_frontend/pc/logo_header.png" alt="Logo header"></a></a>
+      <div align=left>
+
+  <!-- .header -->
+</header>
+
+<body>
+<br>
+<div style="width:50%; margin:0 auto;" align="center">
+  <h1><font size =6>V1</h1>
+
+<div class="job-data__main">
+<section>
+  <table class="table table-set--jobdata",align="center">
+    <colgroup>
+      <col style="width: 100px;">
+    </colgroup>
+          <tr><th><%= link_to '求人管理',jobs_path %></tr></th>
+        <tr><th><%= link_to '会社管理',clients_path %></tr></th>
+        <tr><th><%= link_to '求職者管理',v2_users_path %></tr></th>
+        </table>
+      </section>
+    </div>
+</div>

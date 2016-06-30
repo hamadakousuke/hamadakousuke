@@ -1,30 +1,69 @@
-<h1>新規クライアント</h1>
-  <%= form_for @client do |f| %>
-  <p>
-    <%= f.label :company_name %><br>
-    <%= f.text_field :company_name %>
-  </p>
-  <p>
-    <%= f.label :ceo%><br>
-    <%= f.text_field :ceo %>
-  </p>
-  <p>
-    <%= f.label :job_recruiter%><br>
-    <%= f.text_field :job_recruiter%>
-  </p>
-  <p>
-    <%= f.label :address%><br>
-    <%= f.text_field :address %>
-  </p>
+<head>
+</head>
 
-  <p>
-    <%= f.label :number_hired%><br>
-    <%= f.text_field :number_hired %>
-  </p>
-  <p>
-    <%= f.label :corporate_form%><br>
-    <%= f.text_field :corporate_form%>
-  </p>
+<div style="width:50%; margin:0 auto;" align="center">
+
+<h1><font size="5">新規クライアント</font></h1>
+  <%= form_for @client do |f| %>
+
+  <div style="width:50%; margin:0 auto;" align="center">
+  <form action="new_user_through" method="post" >
+  <input name="authenticity_token" type="hidden" value="1234" />
+    <table class="table table-set--pt1 table--thd-20 w-block txt_size_12">
+        <colgroup>
+          <col style="width:200px;">
+        </colgroup>
+        <tbody>
+
+           <tr>
+             <th>
+              <%= f.label :company_name %><br>
+              <%= f.text_field :company_name %>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <%= f.label :ceo%><br>
+              <%= f.text_field :ceo %>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <%= f.label :job_recruiter%><br>
+              <%= f.text_field :job_recruiter%>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <%= f.label :address%><br>
+              <%= f.text_field :address %>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <%= f.label :number_hired%><br>
+              <%= f.text_field :number_hired %>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <%= f.label :corporate_form%><br>
+              <%= f.text_field :corporate_form%>
+            </th>
+          </tr>
+            <tr>
+              <th><%= f.label :"E-mail" %><br>
+              <%= f.email_field :email %>
+            </th>
+            </tr>
+
+            <tr>
+              <th><%= f.label :"パスワード" %><br>
+              <%= f.password_field :password %>
+            </th>
+            </tr>
+        </tbody>
+      </table>
   <p>
     <%= f.submit %>
   </p>

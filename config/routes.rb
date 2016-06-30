@@ -1,40 +1,32 @@
 Rails.application.routes.draw do
 
-  get 'user_job/index'
+  get 'scouts/index'
 
-  get 'user_job/show'
+  get 'scouts/show'
+
+  get 'scouts/entry'
 
   get 'entries/entry'
 
   get 'sessions/new'
 
-  get 'users/index'
-
-  get 'users/show'
-
-  get 'users/new'
-
-  get 'users/edit'
-
-  get 'users/create'
-
-  get 'client_managements/index'
-
-  get 'client_managements/show'
-
-  get 'client_managements/new'
-
-  post 'client_managements/create'
-
-  get 'client_managements/index'
-
-  get 'client_managements/show'
-
-  get 'client_managements/new'
-
   get 'areas/index'
 
   Rails.application.routes.draw do
+
+  get 'scouts/index'
+
+  post 'scouts/index'
+
+  get 'scouts/show'
+
+  get 'scouts/scout'
+
+  post 'scouts/scouts/scout', to: 'scouts#scout'
+
+  get 'v2_users/index'
+
+  get 'v2_users/show'
 
   get 'user_job/index'
 
@@ -62,15 +54,24 @@ Rails.application.routes.draw do
 
  get 'joboffers/show/:id', to:'joboffers#show'
 
- resources :users
+ get 'jobs/serach'
+
+ resources :client_sessions, only: [:new, :create, :destroy]
+
+
+ resource :users
 end
 
   resources :jobs
 
 
-  resources :grandtops
+  resources :grandtops, only: [:index]
 
   resources :clients
+
+  resources :v2_users
+
+  resources :client_managements
 
 
 

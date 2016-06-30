@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <Div Align="right">
+    <a> <%= link_to '管理画面に戻る',v2s_index_path %></a>
+    </Div>
+
+    <h1 align="center">求職者管理一覧</h1>
+
+  <br>
+  <h2 align="center">登録者数　<%=  User.count %>名</h2>
+
+    <table border=1 height="200" width="500" align="center">
+    <tr style="background:#BBBBBB">
+     <td width="50">求職者ID</td>
+     <td>氏名</td>
+     <td>性別</td>
+     <td>生年月日</td>
+     <td>経歴</td>
+     <td>希望職種</td>
+    </tr>
+
+      <% User.all.each do |user| %>
+     <tr>
+       <td align="center"><%= user.id %></td>
+       <td><%= user.name %></td>
+       <td align="center"><%= user.gender %></td>
+       <td align="center"><%= user.birthday %></td>
+       <td align="center"><%= user.career %></td>
+       <td align="center"><%= user.job_objective %></td>
+    <% end %>
+  </body>
+</html>

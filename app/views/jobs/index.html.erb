@@ -1,16 +1,44 @@
 
-
+<html lang="ja">
 <head>
-</heda>
+
+<header>
+  <div class="header">
+
+    <div class="header-top">
+      <div class="container">
+        <ul class="header-top__navi">
+          <li><a ><%= link_to '管理画面',v2s_index_path %></a></li>
+          <li><a ><%= link_to 'ログイン',login_path %></a></li>
+            <li><a><%= link_to '企業管理画面',client_managements_path %>
+            <li><a><%= link_to 'TOPへ戻る',grandtops_path %></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="header-middle container clear">
+      <a class="header-middle__logo" href="/"><img class="logo_header" src="https://relax-job.com/images/user_frontend/pc/logo_header.png" alt="Logo header"></a></a>
+      <div align=left>
+
+  <!-- .header -->
+</header>
+
 <body>
-<h1>求人案件一覧</h1>
-
-    <P><% @jobs.each do |job| %></P>
-      <%= link_to job.title,job_path(job.id) %>
-      <%= link_to "編集",edit_job_path(job.id) %>
-      <%= link_to "削除",job_path(job.id), method: :delete, data:{confirm: "本当によろしいでしょうか？"} %>
-  <% end %>
-
-<p><%= link_to '新規広告',new_job_path %></P>
-<p><%= link_to '管理画面に戻る',v2s_index_path %></p>
+  <div style="width:50%; margin:0 auto;" align="center">
+      <h1><font size = 4 >求人一覧</h1>
+        <p><font size="5">掲載案件数<%= @jobs.count %>件</p>
+  <div class="job-data__main">
+    <section>
+      <table class="table table-set--jobdata",align="center">
+          <% @jobs.each do |job| %>
+        <colgroup>
+          <col style="width: 100px;">
+        </colgroup>
+              <tr align="center"><th><%= link_to job.title,"http://localhost:3000/joboffers/show/#{job.id}" %><%= link_to "編集",edit_client_management_path(job.id) %><%= link_to "削除",client_management_path(job.id), method: :delete, data:{confirm: "本当によろしいでしょうか？"} %></tr></th>
+          <% end %>
+            </table>
+          </section>
+        </div>
+  </div>
+</div>
 </body>

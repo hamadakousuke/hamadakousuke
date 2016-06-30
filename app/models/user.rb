@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
 
   validates :hometown, presence: true
+
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
  validates :email, presence: true, length: { maximum: 255 },
@@ -14,7 +15,10 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
 
-  has_many :user_job
+  has_many :user_jobs
   has_many :jobs, through: :user_job
+
+  has_many :user_jobs
+  has_many :jobs, through: :scount
 
 end

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<header>
+  <div class="header">
+
+    <div class="header-top">
+      <div class="container">
+        <ul class="header-top__navi">
+          <li><a ><%= link_to '管理画面',v2s_index_path %></a></li>
+          <li><a ><%= link_to 'ログイン',login_path %></a></li>
+            <li><a><%= link_to '企業管理画面',client_managements_path %></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="header-middle container clear">
+      <a class="header-middle__logo" href="/"><img class="logo_header" src="https://relax-job.com/images/user_frontend/pc/logo_header.png" alt="Logo header"></a></a>
+      <div align=left>
+
+  <!-- .header -->
+</header>
+
+
+<div align=center>
+<% provide(:title, "ログイン画面") %>
+<h1><font size = 3>ログイン</h1>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(:sessions, url: client_sessions_path) do |f| %>
+
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.submit "ログイン", class: "btn btn-primary" %>
+      <% end %>
+        <%= link_to "TOPに戻る",grandtops_path%>
+    </div>
+  </div>
+
+</div>

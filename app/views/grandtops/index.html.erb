@@ -1,16 +1,139 @@
-<head>
-  <%= link_to '管理画面',v2s_index_path %>
-  <%= link_to 'ログイン',login_path %>
-  <%= link_to '企業管理画面',client_managements_index_path %>
-</head>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head></head>
+
+<body data-controller="Top" data-action="index" data-site="biyo">
+
+    <script>
+      dataLayer = [{
+          'device': 'desktop',
+      }];
+    </script>
+
+<header>
+  <div class="header">
+
+    <div class="header-top">
+      <div class="container">
+        <ul class="header-top__navi">
+          <li><a ><%= link_to '管理画面',v2s_index_path %></a></li>
+          <li><a ><%= link_to 'ログイン',login_path %></a></li>
+            <li><a><%= link_to '企業管理画面',new_client_session_path %></a></li>
+             <li><a><%= link_to "マイページ","http://localhost:3000/users" %></a></li>
+             <li>HAMAjob!!<li>
+
+        </ul>
+      </div>
+    </div>
+
+      <!-- modal部分 -->
+      <div class="memberRegistrationModal popDiv_id-pt2">
+        <div id="modal-content">
+          <a href="javascript:void(0)" class="modal_close"></a>
+          <hr class="modal_header-bar">
+          <h2 class="modal_heading2-pt2">この機能はリジョブ会員限定です。</h2>
+          <div class="row row-mg area01">
+            <div class="cols_6">
+              <h3 class="modal_heading3-pt1">リジョブに登録すると！</h3>
+                <ul>
+                  <li>企業からスカウトが届く</li>
+                  <li>最新の求人をメールでお知らせ！</li>
+                  <li>お祝い金がもらえる！</li>
+                </ul>
+            </div>
+            <div class="cols_6">
+              <img src="
+              " alt="">
+            </div>
+          </div>
+        </div>
+        <div class="modal_box02 p_20 t_center">
+          <a href="/mypage/registration/new" class="btn btn--pt1 btn--large txt_size_14 w-280px">無料会員登録</a>
+        </div>
+        <div class="modal_box02 p_10 t_center">
+          すでに会員登録済みの方はこちらから<a href="http://localhost:3000/login">ログイン</a>
+        </div>
+  <!-- .header -->
+</header>
+<!-- header -->
 
 
+<!-- BIYO -->
+<!-- modal部分 -->
+<div class="popDiv_id popDiv_id-pt2">
+  <div id="modal-content">
+    <a href="javascript:void(0)" class="modal_close"></a>
+    <hr class="modal_header-bar">
+    <h2 class="modal_heading2-pt2">この機能はリジョブ会員限定です。</h2>
+    <div class="row row-mg area01">
+      <div class="cols_6">
+        <h3 class="modal_heading3-pt1">リジョブに登録すると！</h3>
+        <ul>
+          <li>企業からスカウトが届く</li>
+          <li>最新の求人をメールでお知らせ！</li>
+          <li>お祝い金がもらえる！</li>
+        </ul>
+      </div>
+      <div class="cols_9">
+        <img src="https://relax-job.com/images/user_frontend/pc/img_entry-01.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="modal_box02 p_20 t_center">
+    <a href="/mypage/registration/new" class="btn btn--pt1 btn--large txt_size_14 w-280px">無料会員登録</a>
+  </div>
+  <div class="modal_box02 p_10 t_center">
+    すでに会員登録済みの方はこちらから<a href="http://localhost:3000/login">ログイン</a>
+  </div>
+</div>
 
-<h1>リジョブ</h1>
+  <div class="key-visual-top">
+    <div class="js-slick--keyvisual">
+      <div class="key-visual__elements key-visual__elements___pt1">
+        <img alt="美容・リラクゼーション・治療に特化した求人サイト" src="https://relax-job.com/images/user_frontend/pc/img_top_keyv01.png" />
+      </div>
+      <div class="key-visual__elements key-visual__elements___pt2">
+        <img alt="お祝い金最大1万円をプレゼントいたします！" src="https://relax-job.com/images/user_frontend/pc/img_top_keyv02.png" />
+      </div>
+      <div class="key-visual__elements key-visual__elements___pt3">
+        <img alt="会員登録すると便利な機能が使えます！" src="https://relax-job.com/images/user_frontend/pc/img_top_keyv03.png" />
+      </div>
+    </div>
+  </div>
 
+  <div class="quick_search txt_size_12">
+              <div align=center>
+                <%= form_tag :joboffers_index, method: :get do %>
+                  <%= label_tag :area, "都道府県" %>
+                  <%= select_tag :area, options_for_select(Job.areas),include_blank: true %>
+                  <%= label_tag :employment, "雇用形態" %>
+                  <%= select_tag :employment, options_for_select(Job.employments), include_blank: true %>
+                  <%= submit_tag "カンタン検索！" %>
+                <% end %>
+              </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
 
-<ul>
+  <div class="content mt_30">
+    <div class="content-main" align =center>
 
-<%= link_to '求人一覧', joboffers_index_path %>
+      <main>
 
-</ul>
+        <section class="box-pt1 mb_20" align =center>
+          <div class="heading2-pt2 heading2-pt2--border-bt">
+
+        <section class="box-side-nav">
+          <h2 class="box-side-nav__heading">ログイン</h2>
+          <form class="login_form" id="new_user_frontend_user" action="http://localhost:3000/login" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="hXQUnCgfB4y4s1S0iybXfBleJ0Ol8v3zas8CpzOCevyFWvx3nps1GDAaplVSS2QYFBgkRzphTiPmOWHffMlypQ==" />
+            <p class="mb_10 t_right">
+              <input class="w-block mb_5" placeholder="メールアドレス" type="text"  name="session[email]" id="user_frontend_user_email" />
+              <input class="w-block mb_5" placeholder="パスワード" type="password" name="session[password]" id="user_frontend_user_password" />
+            </p>
+            <input type="submit" name="commit" value="ログインする" class="btn btn--small w-block" />
+          </form>

@@ -7,6 +7,7 @@ class CreateJobs < ActiveRecord::Migration
       t.integer :entry_counts
       t.integer :area
       t.integer :employment
+      t.integer :fild
       t.timestamps null: false
     end
   end

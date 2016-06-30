@@ -1,7 +1,209 @@
-<h1> <%= @user.name %> </h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ja">
+<head></head>
 
-<p>あなたの現在の応募数は<%= @entry.count %>です！！</p>
+<body data-controller="Top" data-action="index" data-site="biyo">
+
+    <script>
+      dataLayer = [{
+          'device': 'desktop',
+      }];
+    </script>
+
+<header>
+  <div class="header">
+
+    <div class="header-top">
+      <div class="container">
+        <ul class="header-top__navi">
+          <li><a ><%= link_to '管理画面',v2s_index_path %></a></li>
+          <li><a ><%= link_to 'ログイン',login_path %></a></li>
+            <li><a><%= link_to '企業管理画面',new_client_session_path %></a></li>
+             <li><a><%= link_to "マイページ","http://localhost:3000/users" %></a></li>
+        </ul>
+      </div>
+    </div>
+
+      <!-- modal部分 -->
+      <div class="memberRegistrationModal popDiv_id-pt2">
+        <div id="modal-content">
+          <a href="javascript:void(0)" class="modal_close"></a>
+          <hr class="modal_header-bar">
+          <h2 class="modal_heading2-pt2">この機能はリジョブ会員限定です。</h2>
+          <div class="row row-mg area01">
+            <div class="cols_6">
+              <h3 class="modal_heading3-pt1">リジョブに登録すると！</h3>
+                <ul>
+                  <li>企業からスカウトが届く</li>
+                  <li>最新の求人をメールでお知らせ！</li>
+                  <li>お祝い金がもらえる！</li>
+                </ul>
+            </div>
+            <div class="cols_6">
+              <img src="
+              " alt="">
+            </div>
+          </div>
+        </div>
+        <div class="modal_box02 p_20 t_center">
+          <a href="/mypage/registration/new" class="btn btn--pt1 btn--large txt_size_14 w-280px">無料会員登録</a>
+        </div>
+        <div class="modal_box02 p_10 t_center">
+          すでに会員登録済みの方はこちらから<a href="http://localhost:3000/login">ログイン</a>
+        </div>
+  <!-- .header -->
+</header>
+<!-- header -->
+
+<div class="content content--mypage">
+  <div class="content-head">
+<script type="application/ld+json">
+  {"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://relax-job.com/","name":"リジョブ"}},{"@type":"ListItem","position":2,"item":{"@id":"","name":"マイページトップ"}}]}
+</script>
+
+    <h1 class="heading1-pt1"><%= @user.name %>さんのマイページ</h1>
+
+  </div>
+
+  <div class="warrper--mypage">
+
+    <div class="mypage-side">
+  <ul class="mypage-navi">
+
+      <li><a href="/mypage"
+              class="current">マイページ</a></li>
+      <li><a href="/mypage/job_scouts"
+             false>スカウト管理</a></li>
+      <li><a href="/job_keep"
+             false>キープ</a></li>
+      <li><a href="/job_browse"
+           false>閲覧履歴</a></li>
+      <li><a href="/mypage/entries?tab=all"
+             false>応募管理</a></li>
+      <li><a href="/mypage/entries/messages"
+             false>メッセージ</a></li>
+      <li><a href="/mypage/user_rewards/new"
+             false>お祝い金申請</a></li>
+      <li><a href="/users/edit"
+             false>プロフィール</a></li>
+      <li><a href="/mypage/profile/edit_hoped_condition"
+             false>希望条件</a></li>
+      <li><a href="/mypage/setting"
+             false>設定</a></li>
+
+  </ul>
+</div>
+<!-- side-nav--mypage -->
+
+<h1> <%= @user.name %> </h1>
+
 
 <%= link_to "TOPに戻る",grandtops_path%>
-<%= link_to "求人一覧", jobs_path %>
+<%= link_to "求人一覧", joboffers_index_path %>
+
+
+    <div class="mypage-main">
+      <h2 class="heading2-mypage">マイページトップ</h2>
+<section>
+  <div class="row row-mg mb_30">
+    <div class="cols_4">
+      <div class="mypage-info">
+        <h3 class="mypage-info__title">応募履歴</h3>
+        <div class="mypage-info__circle"><span class="mypage-info__circle__count"><%= @entry.count %><span class="txt_size_12">件</span></span>
+          <p class="txt_size_10">
+          </p>
+        </div>
+        <p class="mypage-info__footer"></p>
+      </div>
+    </div>
+    <div class="cols_4">
+      <div class="mypage-info">
+        <h3 class="mypage-info__title"><i class="icon-attach"></i> キープ中の案件</h3>
+        <div class="mypage-info__circle">
+          <span class="mypage-info__circle__count">0<span class="txt_size_12">件</span></span>
+          <p class="txt_size_10">
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="cols_4">
+      <div class="mypage-info">
+        <h3 class="mypage-info__title"><i class="icon-paper-plane"></i> スカウト</h3>
+        <div class="mypage-info__circle">
+          <span class="mypage-info__circle__count"><%= @scout.count %><span class="txt_size_12">件</span></span>
+            <p class="txt_size_10">
+            </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="mb_20">
+
+    <h3 class="heading3-mypage">お知らせ
+      <span class="heading3-mypage__sub"><a href="/mypage/news">過去一覧はこちら</a></span>
+    </h3>
+    <div class="p_15">
+      <dl class="list-dl-pt3 list-dl-pt3--bdb list-dl-pt3--dt9em txt_size_12">
+          <dt>2016年04月07日</dt>
+            <dd><a href="/mypage/news/14">システム障害のお知らせ</a></dd>
+          <dt>2016年02月15日</dt>
+            <dd><a href="/mypage/news/10">サイトメンテナンスのお知らせ</a></dd>
+          <dt>2016年02月08日</dt>
+            <dd><a href="/mypage/news/9">美容師の職歴を登録されている皆様へお願い</a></dd>
+          <dt>2015年12月06日</dt>
+            <dd><a href="/mypage/news/2">求人サイトリジョブ　リニューアルのお知らせ</a></dd>
+      </dl>
+    </div>
+
+
+  <h3 class="heading3-mypage">おすすめの求人</h3>
+<div class="p_15">
+  <div class="row row-mg mb_20">
+    <% @user.user_jobs.each do |entry| %>
+      <div class="cols_4 boxset-pt1">
+        <figure class="t_center"><img src="https://s3-ap-northeast-1.amazonaws.com/rejob-v2-images-production/files/client_shop_image/pUDhfr/p2gOGm/uZYRYi/psVNME/u1g/mini_thumb.jpg" alt="リコメンド画像"></figure>
+        <h3 class="boxset-pt1__title">
+          <a href="/joboffers/show/"<%= entry.job.id %>>
+            <%= entry.job.title %>
+          </a>
+        </h3>
+        <p class="boxset-pt1__corp">株式会社ベンチャーバンク</p>
+        <dl class="boxset-pt1__terms">
+          <dt>勤務地</dt>
+          <dd>全国各地</dd>
+          <dt>雇用形態</dt>
+          <dd>
+              <%= entry.job.employment %>
+          </dd>
+        </dl>
+      </div>
+      <% end %>
+      </div>
+
+</div>
+
+</section>
+
+    </div>
+    <!-- content-main--mypage -->
+  </div>
+  <!-- warrper--mypage -->
+</div>
+<!-- content -->
+
+<footer>
+
+
+</footer>
+
+<!-- jsファイル -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5i_bIWxrApoIXH8n791PrVRcjEaQqeBk"></script>
+<script src="/assets/user_frontend/shared/application-3cc0777a1bf59688700f860ca69eec9f.js"></script>
+
+<script src="/assets/user_frontend/pc/application-49de9dfe29eb6351405a0c5a1b9f39f1.js"></script>
+
+
+</body>
+</html>

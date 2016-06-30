@@ -1,0 +1,29 @@
+<html>
+<html lang="ja">
+<head>
+
+<header>
+  <div class="header">
+
+    <div class="header-top">
+      <div class="container">
+        <ul class="header-top__navi">
+          <li><a ><%= link_to '管理画面',v2s_index_path %></a></li>
+          <li><a ><%= link_to 'ログイン',login_path %></a></li>
+            <li><a><%= link_to '企業管理画面',client_managements_path %>
+            <li><a><%= link_to 'TOPへ戻る',grandtops_path %></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="header-middle container clear">
+      <a class="header-middle__logo" href="/"><img class="logo_header" src="https://relax-job.com/images/user_frontend/pc/logo_header.png" alt="Logo header"></a></a>
+      <div align=left>
+
+  <!-- .header -->
+</header>
+
+<div align=center>
+<h1><font size = 6>スカウト完了しました！！</h1>
+<%= link_to '求人一覧', joboffers_index_path %>
+</div>

@@ -1,0 +1,27 @@
+<h1>編集</h1>
+<%= form_for @job, url: {controller: 'client_managements', action: 'update'} do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :content_detail%><br>
+    <%= f.text_field :content_detail %>
+  </p>
+
+  <p>
+  <%= f.label :"勤務地" %>
+  <%= f.select :area, Job.areas.keys %>
+  </p>
+
+  <p>
+  <%= f.label :"雇用形態" %>
+  <%= f.select :employment, Job.employments.keys %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+  <%= link_to '企業管理画面に戻る',client_managements_path %>
+  <%= link_to '求人管理に戻る',client_management_path %>
+<% end %>

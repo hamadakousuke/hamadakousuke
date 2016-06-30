@@ -1,0 +1,22 @@
+<h1>スカウト</h1>
+
+  <body>
+<% @users.each do |user| %>
+   <%= user.name %><br />
+
+
+    <td><form method="post" action="scouts/scout">
+        <input type="hidden" name="authenticity_token" value="aEzZnW940v9bBGaBsAVmO92kxeL7c4ptQw+wDCRUtyK6coIeIAEeBvSMu03lpaz/gX5S2yh/bgR/GfZDDP+VGg==">
+        <td colspan="2"align=right>
+          <select name="job_id">
+          　<% @jobs.each do |i| %>
+            <option value=<%= i.id %> ><%= i.title %></option>
+            <% end %>
+          </select>
+          <input type="submit"　 value="スカウト"　class="btn btn--pt3 btn--entry01 btn--kantan w-block" rel="nofollow"></td>
+    </form></td>
+  </table>
+    <% end %>
+</body>
+
+<% link_to "企業管理画面に戻る",client_managements_path %>

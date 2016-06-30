@@ -1,28 +1,93 @@
 <head>
+  <div class="header">
+
+    <div class="header-top">
+      <div class="container">
+        <ul class="header-top__navi">
+          <li><a ><%= link_to '管理画面',v2s_index_path %></a></li>
+          <li><a ><%= link_to 'ログイン',login_path %></a></li>
+            <li><a><%= link_to '企業管理画面',new_client_session_path %></a></li>
+             <li><a><%= link_to "マイページ","http://localhost:3000/users" %></a></li>
+        </ul>
+      </div>
+    </div>
 </head>
   <div>
-    <h1>求人案件一覧</h1>
+  <h1><font size = 4>求人案件一覧</h1>
   </div>
-      案件は<%= @jobs.count %>件です<br>
+      <h1><font size = 4>案件は<%= @jobs.count %>件です</h1> <br>
 
   <div>
-  <%= form_tag(joboffers_index_path, method:"get") do %>
-  <%= label_tag :area, "都道府県" %>
-  <%= select_tag :area, options_for_select(Job.areas),include_blank: true %>
-  <%= label_tag :employment, "雇用形態" %>
-  <%= select_tag :employment, options_for_select(Job.employments), include_blank: true %>
-  <%= submit_tag "検索" %>
-  <% end %>
-  </div
-
-
-  <p class="案件一覧"> <% @jobs.each do |job| %></p>
-    <%= link_to job.title,"http://localhost:3000/joboffers/show/#{job.id}" %>
-
-    <form method="post" action="/entries/entry">
-      <input type="hidden" name="authenticity_token" value="aEzZnW940v9bBGaBsAVmO92kxeL7c4ptQw+wDCRUtyK6coIeIAEeBvSMu03lpaz/gX5S2yh/bgR/GfZDDP+VGg==">
-        <input name="job_id" type="hidden" value="<%= job.id %>" />
-        <td colspan="2"align=right><input type="submit"　 value="応募する"　class="btn btn--pt3 btn--entry01 btn--kantan w-block" rel="nofollow">
-    </form>
+    <%= form_tag(joboffers_index_path, method:"get") do %>
+      <%= label_tag :area, "都道府県" %>
+      <%= select_tag :area, options_for_select(Job.areas),include_blank: true %>
+      <%= label_tag :employment, "雇用形態" %>
+      <%= select_tag :employment, options_for_select(Job.employments), include_blank: true %>
+      <%= submit_tag "検索" %>
     <% end %>
-    <%= link_to "TOPに戻る",grandtops_path%>
+  </div>
+
+  <p class="案件一覧">
+  <% @jobs.each do |job| %></p>
+
+    <section class="search-job-box">
+        <div class="search-job-box__header table_row">
+          <div class="cols_8">
+            <span class="search-job-box__header__corp">
+                <%= @client %>
+            </span>
+            <h2 class="search-job-box__header__title">
+            	<a><%= link_to job.title,"http://localhost:3000/joboffers/show/#{job.id}" %></a>
+            </h2>
+          </div>
+          <div class="cols_4 v_bottom">
+              <span class="ml_1 f_right label__oiwai label__oiwai--5000"></span>
+            <ul class="f_right ul-inline ul-inline--lr1">
+            </ul>
+            <div class="label__search-job-box">
+            </div>
+          </div>
+        </div>
+
+        <div class="search-job-box__content">
+          <div class="pct">
+
+                  <img src="https://s3-ap-northeast-1.amazonaws.com/rejob-v2-images-production/files/client_shop_image/3UhzmM/dxU_0t/Wny4YS/4_wymV/xgE/shop_album.jpg?1467171233">
+          </div>
+          <div class="info">
+              <p class="mb_15">
+            <font size = 3><%= job.content_detail %>
+              </p>
+            </dl>
+          </div>
+        </div>
+
+    		<div class="search-job-box__footer">
+    						 <div class="table_row">
+    							 <div class="cols_5">
+    								 <div class="info-box--tell">
+    									 <span class="txt_size_12">TEL応募：</span><span class="txt_size_18 rj_typo_color-c">0120-954-077</span><br>
+    									 <span class="txt_size_12">求人番号：<%= job.id %></span>　<span class="txt_size_10">求人番号をお控え下さい。</span>
+    								 </div>
+    							 </div>
+    							 <div class="cols_7 t_right txt_size_16">
+    								 <div class="js_bookmark_area">
+
+    								  <form class="js_add_bookmark_form" action="/job_keep" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="DmAyN3+YcuAfUD0EifphlCy5JO7SwC2AuWWKwl9O52AKidD8erh+L/2xTKv+WR+eZDIFEFcLDGfOUquH30+xPQ==" />
+    								    <input type="hidden" name="job[code]" value="B8784175" />
+    								</form>
+    								  <form class="js_remove_bookmark_form" action="/job_keep" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="delete" /><input type="hidden" name="authenticity_token" value="QIb6DfCqbgNN/0LrnfKJVRDyxBGLSJU66iPodnbGdFZEbxjG9YpizK8eM0TqUfdfWHnl7w6DtN2dFMkz9sciCw==" />
+    								    <input type="hidden" name="job[code]" value="B8784175" />
+    								</form>
+
+    								<form method="post" action="/entries/entry">
+    										<input type="hidden" name="authenticity_token" value="aEzZnW940v9bBGaBsAVmO92kxeL7c4ptQw+wDCRUtyK6coIeIAEeBvSMu03lpaz/gX5S2yh/bgR/GfZDDP+VGg==">
+    										<input name="job_id" type="hidden" value="<%= job.id %>"/>
+    										<td colspan="2"align=right><input type="submit"　 value="応募する"　class="btn btn--pt3 btn--entry01 btn--kantan w-block" rel="nofollow">
+    								</form>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+<% end %>

@@ -42,7 +42,7 @@ class JobsController < ApplicationController
   end
 
    def job_params
-     params.require(:job).permit(:title,:content_detail,:area,:employment)
+     params.require(:job).permit(:title,:content_detail,:area,:employment,:image)
    end
 
    def user_params

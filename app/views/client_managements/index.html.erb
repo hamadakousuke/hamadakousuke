@@ -1,3 +1,42 @@
-<h1>企業管理画面</h1>
+    <html>
+    <html lang="ja">
+    <head>
 
-<%= @client.company_name %>
+    <header>
+      <div class="header">
+
+        <div class="header-top">
+          <div class="container">
+            <ul class="header-top__navi">
+              <li><a ><%= link_to '管理画面',v2s_index_path %></a></li>
+              <li><a ><%= link_to 'ログイン',login_path %></a></li>
+                <li><a><%= link_to '企業管理画面',client_managements_path %>
+                <li><a><%= link_to 'TOPへ戻る',grandtops_path %></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="header-middle container clear">
+          <a class="header-middle__logo" href="/"><img class="logo_header" src="https://relax-job.com/images/user_frontend/pc/logo_header.png" alt="Logo header"></a></a>
+          <div align=left>
+
+      <!-- .header -->
+    </header>
+  </head>
+  <body>
+<br>
+<div style="width:50%; margin:0 auto;" align="center">
+    <h1><font size =6><%= @client.company_name %>様の企業管理画面</h1>
+
+<div class="job-data__main">
+  <section>
+    <table class="table table-set--jobdata",align="center">
+      <colgroup>
+        <col style="width: 100px;">
+      </colgroup>
+            <tr><th><%= link_to '求人管理',client_management_path(@client) %></tr></th>
+          <tr><th><%= link_to 'スカウト',scouts_index_path %></tr></th>
+          </table>
+        </section>
+      </div>
+</div>

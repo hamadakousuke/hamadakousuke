@@ -5,17 +5,24 @@ class Job < ActiveRecord::Base
   "京都府": 26,"大阪府": 27,"兵庫県": 28,"奈良県": 29,"和歌山県": 30,"鳥取県": 31,"島根県": 32,"岡山県": 33,"広島県": 34,"山口県": 35,"徳島県": 36,"香川県": 37,"愛媛県": 38,"高知県": 39,
   "福岡県": 40,"佐賀県": 41,"長崎県": 42,"熊本県": 43,"大分県": 44,"宮崎県": 45,"鹿児島県": 46,"沖縄県": 47}
 
-    validates :title,:content_detail,presence: true
+  enum fild: {"美容": 0,"治療": 1,"リラクゼーション": 2,"スポーツ・フィットネス": 3}
+  validates :title,:content_detail,presence: true
 
-    # 雇用形態による絞り込み
-    scope :get_by_employment,->(employment) {where(employment: employment)}
-    # 勤務地による絞り込み
-    scope :get_by_area, ->(area) {where(area: area)}
+  # 雇用形態による絞り込み
+  scope :get_by_employment, ->(employment) {where(employment: employment)}
+  # 勤務地による絞り込み
+  scope :get_by_area, ->(area) {where(area: area)}
 
-    has_many :user_job
-    has_many :users, through: :user_job
+  has_many :user_jobs
+  has_many :users, through: :user_job
 
-    has_many :jobs_area
-    has_many :areas, through: :jobs_area
+  has_many :jobs_area
+  has_many :areas, through: :jobs_area
+
+  belongs_to :client
+
+  has_many :user_jobs
+  has_many :users, through: :scout
+
 
 end

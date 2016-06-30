@@ -5,8 +5,9 @@ class UsersController < ApplicationController
   end
   # データを閲覧する画面を表示するためのAction
   def show
-    @entry = UserJob.where(user_id: params[:id])
-    @user = User.find(params[:id])
+    @entry = UserJob.where(user_id: session[:user_id])
+    @user = User.find(session[:user_id])
+    @scout = Scout.where(user_id: session[:user_id])
   end
   # データを作成する画面を表示するためのAction
   def new
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
   end
   # データを更新する画面を表示するためのAction
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(session[:user_id])
   end
   # データを作成するためのAction
   def create
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Welcome to Rejob!!!"
-      redirect_to @user
+      redirect_to "http://localhost:3000/users"
     else
       render "new"
     end

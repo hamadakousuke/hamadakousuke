@@ -9,6 +9,8 @@ class CreateClients < ActiveRecord::Migration
       t.string :ceo
       t.string :job_recruiter
       t.integer :number_hired
+      t.string :email
+      t.string :password
 
       t.timestamps null: false
     end

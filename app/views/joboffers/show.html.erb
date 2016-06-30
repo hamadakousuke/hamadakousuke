@@ -1,20 +1,40 @@
-<head>
-  <%= link_to '管理画面',v2s_index_path %>
-</head>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HAMADAリジョブ</title>
+  </head>
+  <body>
+
+<div class="content">
+    <br>
+     <h1><font size = 4>『<%= @job.title %>』</h1>
+
+  <section class="job-data">
+    <br>
+  <div class="job-data__side">電話番号<br>
+    090-XXXX-XXXX <br>
+        <form method="post" action="/entries/entry" >
+          <input type="hidden" name="authenticity_token" value="aEzZnW940v9bBGaBsAVmO92kxeL7c4ptQw+wDCRUtyK6coIeIAEeBvSMu03lpaz/gX5S2yh/bgR/GfZDDP+VGg==">
+            <input name="job_id" type="hidden" value="<%= @job.id %>" />
+            <td colspan="2"align=right><input type="submit"　 value="応募する"　class="btn btn--pt3 btn--entry01 btn--kantan w-block" rel="nofollow">
+        </form>
+  </div>
+  <div class="search-job-box__content">
+    <div class="pct">
+      <img src="https://s3-ap-northeast-1.amazonaws.com/rejob-v2-images-production/files/client_shop_image/3UhzmM/dxU_0t/Wny4YS/4_wymV/xgE/shop_album.jpg?1467171233">
+    </div>
+  </div>
 
 
-<h1> <%= @job.title %> </h1>
+      <div class="area_visionary h2"><h2><font size = 4>詳細</h2></div>
+        <p><font size = 3><%= @job.content_detail %> </p>
 
-  <p><%= @job.content_detail %> </p>
-  <p><%= @job.area %> </p>
-  <p><%= @job.employment %> </p>
+        <div class="area_visionary h2"><h2><font size = 4>勤務地</h2></div>
+        <p><font size = 3><%= @job.area %> </p>
 
-  <form method="post" action="/entries/entry" >
-    <input type="hidden" name="authenticity_token" value="aEzZnW940v9bBGaBsAVmO92kxeL7c4ptQw+wDCRUtyK6coIeIAEeBvSMu03lpaz/gX5S2yh/bgR/GfZDDP+VGg==">
-      <input name="job_id" type="hidden" value="<%= @job.id %>" />
-      <td colspan="2"align=right><input type="submit"　 value="応募する"　class="btn btn--pt3 btn--entry01 btn--kantan w-block" rel="nofollow">
-  </form>
+        <div class="area_visionary h2"><h2><font size = 4>雇用形態</h2></div>
+        <p><font size = 3><%= @job.employment %> </p>
 
-  <p><%= link_to '一覧へ戻る',joboffers_index_path %></p>
-
-  <p><%= link_to 'TOPへ戻る',grandtops_path %></p>
+  <br>
+  <br>

@@ -1,21 +1,64 @@
-<head>
-  <%= link_to '管理画面',v2s_index_path %>
-</head>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>リジョブ</title>
+    <%= link_to '管理画面',v2s_index_path %>
+  </head>
+  <body>
+
+<div class="content">
+    <br>
+     <h1>『<%= @job.title %>』</h1>
+
+  <section class="job-data">
+    <br>
+  <div class="job-data__side">電話番号<br>
+    090-XXXX-XXXX <br>
+    <a href="javascript:void(0)" class="btn btn--entry01 w-240px" data-bookmark-status="1"><i class="icon-attach"></i>キープする </a>
+    <br>
+    <form method="post" action="/entries/entry?job_id=<%= @user.id %>">
+      <input type="hidden" name="authenticity_token" value="aEzZnW940v9bBGaBsAVmO92kxeL7c4ptQw+wDCRUtyK6coIeIAEeBvSMu03lpaz/gX5S2yh/bgR/GfZDDP+VGg==">
+        <input name="job_id" type="hidden"　 value="<%= params[:id] %>" >
+        <td colspan="2"align=right><input type="submit"　 value="応募する"　class="btn btn--pt3 btn--entry01 btn--kantan w-block" rel="nofollow">
+    </form>
+
+  </div>
+  <div class="search-job-box__content">
+    <div class="pct">
+      <a href="/job/1011389">
+        <figure>
+            <img src="https://d18gmz9e98r8v5.cloudfront.net/ptr/20130909043100_169256989_1298_9.bmp">
+        </figure>
+      </a>
+
+      <div class="area_visionary h2"><h2>詳細</h2></div>
+        <p><%= @job.content_detail %> </p>
+
+        <div class="area_visionary h2"><h2>勤務地</h2></div>
+        <p><%= @job.area %> </p>
+
+        <div class="area_visionary h2"><h2>雇用形態</h2></div>
+        <p><%= @job.employment %> </p>
+
+        <P>応募数<%= @entry.count %></p>
 
 
-<h1> <%= @job.title %> </h1>
 
-  <p><%= @job.content_detail %> </p>
-  <p><%= @job.area %> </p>
-  <p><%= @job.employment %> </p>
-  <P>応募数<%= @entry.count %></p>
 
-  <form method="post" action="/entries/entry?job_id=<%= @user.id %>">
-    <input type="hidden" name="authenticity_token" value="aEzZnW940v9bBGaBsAVmO92kxeL7c4ptQw+wDCRUtyK6coIeIAEeBvSMu03lpaz/gX5S2yh/bgR/GfZDDP+VGg==">
-      <input name="job_id" type="hidden"　 value="<%= params[:id] %>" >
-      <td colspan="2"align=right><input type="submit"　 value="応募する"　class="btn btn--pt3 btn--entry01 btn--kantan w-block" rel="nofollow">
-  </form>
 
-  <p><%= link_to '一覧へ戻る',jobs_path %></p>
+  <br>
+  <div>
 
-  <p><%= link_to 'TOPへ戻る',grandtops_path %></p>
+  </div>
+  <br>
+
+
+
+
+ </div>
+</div>
+</section>
+
+  </body>
+</html>

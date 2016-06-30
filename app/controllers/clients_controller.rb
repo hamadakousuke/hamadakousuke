@@ -45,5 +45,5 @@ end
 private
 
 def client_params
-    params[:client].permit(:company_name,:corporate_form,:contract_status,:pulling_down,:address,:tell,:CEO,:job_recruiter,:number_hired)
+    params[:client].permit(:company_name,:corporate_form,:contract_status,:pulling_down,:address,:tell,:ceo,:job_recruiter,:number_hired,:email, :password)
 end
